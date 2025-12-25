@@ -16,6 +16,8 @@
 
 ## Demo
 
+![Demo Screenshot](public/assets/readme_assets/Screenshot.png)
+
 
 
 ## Features
