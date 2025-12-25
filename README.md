@@ -16,6 +16,7 @@
 
 ## Demo
 
+![Demo Screenshot](public/assets/readme_assets/Screenshot.png)
 ## Features
 
 -   **About Me**: A brief introduction about myself.
@@ -79,4 +80,7 @@ The project structure is organized as follows:
 -   `utils`: Utility functions or helper scripts.
 
 ## Author
+
+- **Name**: Harshit Arya
+- **GitHub**: https://github.com/Harshit-Arya-07
 
