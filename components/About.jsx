@@ -28,7 +28,7 @@ function About() {
         className="mt-4 dark:text-ctnSecondaryDark text-gray-300 text-[17px] w-full leading-[30px] flex flex-col justify-between gap-6"
       >
         <div>
-          Hello! I'm Harshit Arya, a passionate software developer and problem solver. Currently, I'm pursuing a B.E. degree in Computer Science and Engineering, where I focus on building scalable and user-centric web applications. I'm a web developer with hands-on experience in TypeScript, JavaScript, and Tailwind CSS, and I specialize in frameworks such as React, Node.js, and Next.js. I've worked on real-world projects including management systems, algorithm visualization platforms, and responsive e-commerce applications. My strong foundation in data structures and algorithms enables me to design efficient solutions and build clean, high-performance frontend experiences.
+          Hello! I&apos;m Harshit Arya, a passionate software developer and problem solver. Currently, I&apos;m pursuing a B.E. degree in Computer Science and Engineering, where I focus on building scalable and user-centric web applications. I&apos;m a web developer with hands-on experience in TypeScript, JavaScript, and Tailwind CSS, and I specialize in frameworks such as React, Node.js, and Next.js. I&apos;ve worked on real-world projects including management systems, algorithm visualization platforms, and responsive e-commerce applications. My strong foundation in data structures and algorithms enables me to design efficient solutions and build clean, high-performance frontend experiences.
 
           <br className="sm:block hidden" />
           Let&apos;s collaborate to bring your ideas to life!
