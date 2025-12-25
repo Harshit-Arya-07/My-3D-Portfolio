@@ -82,4 +82,3 @@ The project structure is organized as follows:
 
 ## Author
 
--   [@Shivam-Sharma-1](https://github.com/Shivam-Sharma-1)
