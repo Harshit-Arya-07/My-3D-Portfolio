@@ -1,6 +1,6 @@
 # 3D Portfolio
 
-![Portfolio Screenshot](/public/assets/readme_assets/screenshot.png)
+![Portfolio Screenshot](/public/assets/readme_assets/Screenshot.png)
 
 3D Portfolio is my personal portfolio website created using Next.js, Tailwind CSS, Three.js, React Three Fiber, and a collection of other technologies. This website showcases my skills, experiences, projects, and allows users to contact me. It also offers a dark and light theme to enhance the user experience.
 
@@ -15,10 +15,6 @@
 7.  [Author](#author)
 
 ## Demo
-
-![Demo Screenshot](public/assets/readme_assets/Screenshot.png)
-
-
 
 ## Features
 
