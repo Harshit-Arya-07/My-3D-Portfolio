@@ -41,18 +41,18 @@ const services = [
     title: "Frontend Developer",
     icon: <FrontendIcon />,
   },
-  // {
-  //   title: "Backend Developer",
-  //   icon: <BackendIcon />,
-  // },
+  {
+    title: "Backend Developer",
+    icon: <BackendIcon />,
+  },
   {
     title: "Problem Solving",
     icon: <ProblemSolvingIcon />,
   },
-  {
-    title: "Freelancer",
-    icon: <FreelancerIcon />,
-  },
+  // {
+  //   title: "Freelancer",
+  //   icon: <FreelancerIcon />,
+  // },
   // {
   //   title: "Leadership",
   //   icon: <LeaderShipIcon />,
