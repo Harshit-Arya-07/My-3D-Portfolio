@@ -1,143 +1,135 @@
-# 3D Portfolio
+# 3D Developer Portfolio
 
-![Portfolio Screenshot](/public/assets/readme_assets/Screenshot.png)
+![Portfolio Screenshot](public/assets/readme_assets/Screenshot.png)
 
-3D Portfolio is my personal portfolio website created using Next.js, Tailwind CSS, Three.js, React Three Fiber, and a collection of other technologies. This website showcases my skills, experiences, projects, and allows users to contact me. It also offers a dark and light theme to enhance the user experience.
+A modern 3D developer portfolio built with Next.js, Tailwind CSS, Three.js, and React Three Fiber.
 
-Live Link https://harshitarya07.vercel.app/
+Live: https://harshitarya07.vercel.app/
 
-## Table of Contents
-
-1.  [Demo](#demo)
-2.  [Features](#features)
-3.  [Technologies Used](#technologies-used)
-4.  [Packages Used](#packages-used)
-5.  [Getting started](#getting-started)
-6.  [Project Structure](#project-structure)
-7.  [Author](#author)
-
-## Demo
-
-![Demo Screenshot](public/assets/readme_assets/Screenshot.png)
 ## Features
 
--   **About Me**: A brief introduction about myself.
--   **Experience**: Highlighted my work experience.
--   **Skills**: Listed my skills and expertise.
--   **Projects**: Showcased my projects.
--   **Contact**: Provided a contact form for users to get in touch with me.
--   **Responsive Design**: The website is fully responsive to provide an optimal experience on all devices.
--   **Dark and Light Themes**: Users can switch between dark and light themes to suit their preferences.
+- 3D interactive hero and visuals
+- Projects, skills, education, and contact sections
+- Dark/light theme support
+- Responsive UI for desktop and mobile
+- Contact form powered by EmailJS
+- GA4 page view tracking
+- Visitor counter powered by Google Analytics Data API
 
-## Technologies Used
+## Tech Stack
 
--   [Next.js](https://nextjs.org)
--   [React](https://reactjs.dev)
--   [Tailwind CSS](https://tailwindcss.com)
--   [Three.js](https://threejs.org)
--   [React Three Fiber](https://github.com/pmndrs/react-three-fiber)
+- Next.js (Pages Router)
+- React
+- Tailwind CSS
+- Three.js + @react-three/fiber + @react-three/drei
+- Framer Motion
+- EmailJS
+- Google Analytics 4 + Google Analytics Data API
 
-## Packages Used
+## Quick Start
 
--   [react-parallax-tilt](https://www.npmjs.com/package/react-parallax-tilt)
--   [react-type-animation](https://www.npmjs.com/package/react-type-animation)
--   [react-vertical-timeline-component](https://www.npmjs.com/package/react-vertical-timeline-component)
-
-## Getting started
-
-1. Clone this repository to your local machine:
+### 1) Clone repository
 
 ```bash
-
+git clone https://github.com/Harshit-Arya-07/My-3D-Portfolio.git
+cd My-3D-Portfolio
 ```
 
-2. Change to the project directory:
-
-```bash
-cd 3d-portfolio
-```
-
-3. Install the project dependencies:
+### 2) Install dependencies
 
 ```bash
 npm install
 ```
 
-4. To run the development server:
+### 3) Create `.env.local`
+
+Add your values:
+
+```bash
+# EmailJS
+NEXT_PUBLIC_SERVICE_ID=service_xxxxx
+NEXT_PUBLIC_TEMPLATE_ID=template_xxxxx
+NEXT_PUBLIC_EMAILJS_KEY=xxxxxxxxxxxxxxxx
+
+# Google Analytics 4 (frontend tracking)
+NEXT_PUBLIC_GA_MEASUREMENT_ID=G-XXXXXXXXXX
+
+# GA4 Visitor Counter (server-side)
+GA_PROPERTY_ID=123456789
+GA_CLIENT_EMAIL=your-service-account@your-project.iam.gserviceaccount.com
+GA_PRIVATE_KEY="-----BEGIN PRIVATE KEY-----\nYOUR_PRIVATE_KEY\n-----END PRIVATE KEY-----\n"
+GA_REPORT_START_DATE=2024-01-01
+```
+
+### 4) Run development server
 
 ```bash
 npm run dev
 ```
 
-Open your web browser and visit http://localhost:3000 to see the website in action during development.
+Open: http://localhost:3000
 
-## Google Analytics 4 Setup
-
-This project supports GA4 visitor and page view tracking using the official gtag.js integration.
-
-1. Create a `.env.local` file in the project root.
-2. Add your Measurement ID:
+## Scripts
 
 ```bash
-NEXT_PUBLIC_GA_MEASUREMENT_ID=G-XXXXXXXXXX
+npm run dev      # start dev server
+npm run build    # production build
+npm run start    # run production build
+npm run lint     # lint code
 ```
 
-3. Restart the app after updating the environment variable.
+## Google Analytics Setup (Important)
 
-How it works:
+### A) Enable GA4 page tracking
 
-- The GA4 script is loaded in [pages/_app.js](pages/_app.js).
-- SPA page views are tracked on the first load and on every route change.
-- Total visitors and traffic analytics are then available directly in GA4 reports.
+1. Create/select a GA4 property.
+2. Copy Measurement ID (`G-...`) and set `NEXT_PUBLIC_GA_MEASUREMENT_ID`.
 
-Key files:
+### B) Enable visitor counter API
 
-- [pages/_app.js](pages/_app.js): loads the official gtag.js script and sends page views.
-- [lib/gtag.js](lib/gtag.js): contains the GA4 Measurement ID hook-up and `pageview` helper.
+1. Open Google Cloud Console.
+2. Enable **Google Analytics Data API** (not just “Google Analytics API”).
+3. Create a service account and download JSON key.
+4. From JSON, copy:
+	 - `client_email` -> `GA_CLIENT_EMAIL`
+	 - `private_key` -> `GA_PRIVATE_KEY`
+5. In GA4 Property Access Management, add the service account email as **Viewer**.
+6. Set `GA_PROPERTY_ID` from GA4 Property Settings.
 
-## Visitor Counter Setup
+## Deployment (Vercel)
 
-This project can display the total visitor count on the portfolio UI using Google Analytics Data API.
+1. Push code to GitHub.
+2. Import project in Vercel.
+3. Add all `.env.local` variables in Vercel Project Settings -> Environment Variables.
+4. Redeploy.
 
-Add these variables to `.env.local`:
+## Troubleshooting
 
-```bash
-NEXT_PUBLIC_GA_MEASUREMENT_ID=G-XXXXXXXXXX
-GA_PROPERTY_ID=123456789
-GA_CLIENT_EMAIL=your-service-account@your-project.iam.gserviceaccount.com
-GA_PRIVATE_KEY="-----BEGIN PRIVATE KEY-----\nYOUR_KEY_HERE\n-----END PRIVATE KEY-----\n"
-GA_REPORT_START_DATE=2024-01-01
-```
+- Visitor API returns `503`: env vars missing (`GA_PROPERTY_ID`, `GA_CLIENT_EMAIL`, `GA_PRIVATE_KEY`).
+- Visitor API returns `500`: service account access/API enablement issue.
+- Counter shows `--`: API failed or not configured.
+- GA page views missing: incorrect `NEXT_PUBLIC_GA_MEASUREMENT_ID` or blocked scripts.
 
-What each one does:
+## Security Notes
 
-- `NEXT_PUBLIC_GA_MEASUREMENT_ID`: used by `gtag.js` for pageview tracking.
-- `GA_PROPERTY_ID`: your GA4 numeric property ID.
-- `GA_CLIENT_EMAIL`: service account email from Google Cloud.
-- `GA_PRIVATE_KEY`: service account private key, kept server-side.
-- `GA_REPORT_START_DATE`: the date from which total visitors should be counted.
-
-Where the counter is shown:
-
-- [components/Hero.jsx](components/Hero.jsx): the visitor count card is rendered below the hero text.
-
-Files used for the counter:
-
-- [components/VisitorCounter.jsx](components/VisitorCounter.jsx): glassmorphism UI card and lightweight client fetch.
-- [pages/api/visitor-count.js](pages/api/visitor-count.js): server route that fetches `totalUsers` from Google Analytics.
+- Never commit `.env.local`.
+- If service account key is exposed, rotate immediately:
+	- Delete old key in Google Cloud
+	- Create new key
+	- Update env vars
 
 ## Project Structure
 
-The project structure is organized as follows:
-
--   `components`: React components used to build different sections of the portfolio.
--   `styles`: Styles and theme configurations, including the dark and light themes.
--   `public`: Static assets, such as images and fonts.
--   `pages`: Individual pages of the website.
--   `utils`: Utility functions or helper scripts.
+- `components/` UI and section components
+- `components/canvas/` 3D canvas components
+- `constants/` static app data
+- `pages/` route pages and API routes
+- `public/` static assets
+- `styles/` global styles
+- `utils/` helper utilities
 
 ## Author
 
-- **Name**: Harshit Arya
-- **GitHub**: https://github.com/Harshit-Arya-07
+- Harshit Arya
+- GitHub: https://github.com/Harshit-Arya-07
 
