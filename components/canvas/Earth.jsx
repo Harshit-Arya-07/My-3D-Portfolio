@@ -1,4 +1,4 @@
-import React, { Suspense, useRef } from "react";
+import React, { memo, Suspense, useRef } from "react";
 import { Canvas, useFrame } from "@react-three/fiber";
 import { OrbitControls, useGLTF } from "@react-three/drei";
 import * as THREE from "three";
@@ -46,9 +46,12 @@ function EarthCanvas({ isMobile }) {
   return (
     <Canvas
       dpr={[1, 2]}
+      resize={{ scroll: false, debounce: { scroll: 0, resize: 120 } }}
       gl={{
         outputColorSpace: THREE.SRGBColorSpace,
         alpha: true,
+        antialias: false,
+        powerPreference: "high-performance",
       }}
       className="cursor-pointer"
     >
@@ -57,4 +60,4 @@ function EarthCanvas({ isMobile }) {
   );
 }
 
-export default EarthCanvas;
+export default memo(EarthCanvas);

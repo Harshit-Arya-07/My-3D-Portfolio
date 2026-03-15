@@ -22,15 +22,18 @@ export function PreLoader() {
 	const [progress, setProgress] = useState(0);
 
 	useEffect(() => {
-		const updateProgress = () => {
-			for (let i = 0; i < 100; i++) {
-				setTimeout(() => {
-					setProgress(i);
-				}, 30 * i);
-			}
-		};
+		const interval = window.setInterval(() => {
+			setProgress((current) => {
+				if (current >= 99) {
+					window.clearInterval(interval);
+					return current;
+				}
 
-		updateProgress();
+				return current + 1;
+			});
+		}, 30);
+
+		return () => window.clearInterval(interval);
 	}, []);
 
 	return (

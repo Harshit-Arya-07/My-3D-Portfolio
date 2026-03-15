@@ -14,6 +14,14 @@ function Contact() {
     message: "",
   });
   const [loading, setLoading] = useState(false);
+  const [copied, setCopied] = useState(false);
+
+  const copyEmail = () => {
+    navigator.clipboard.writeText("harshitsingh0257@gmail.com").then(() => {
+      setCopied(true);
+      setTimeout(() => setCopied(false), 2000);
+    });
+  };
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -82,6 +90,18 @@ function Contact() {
       <p className={"sectionSubText text-ctnSecondaryDark"}>Get in touch</p>
       <h3 className={"sectionHeadText text-ctnPrimaryDark"}>Contact.</h3>
 
+      <button
+        onClick={copyEmail}
+        className="mt-2 inline-flex items-center gap-2 text-sm text-white/50 hover:text-white/80 transition-colors duration-200"
+        title="Copy email address"
+      >
+        <svg viewBox="0 0 24 24" fill="none" className="h-4 w-4 shrink-0" stroke="currentColor" strokeWidth="1.5">
+          <rect x="9" y="9" width="13" height="13" rx="2" />
+          <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1" />
+        </svg>
+        <span className="font-mono text-xs">{copied ? "Copied!" : "harshitsingh0257@gmail.com"}</span>
+      </button>
+
       <form
         ref={formRef}
         onSubmit={handleSubmit}
@@ -98,7 +118,7 @@ function Contact() {
             onChange={handleChange}
             required
             placeholder="What is your good name?"
-            className="bg-bgPrimaryDark py-4 px-6 placeholder:text-ctnSecondaryDark rounded-lg outline-none border-none font-medium text-ctnPrimaryDark  placeholder:text-sm md:placeholder:text-lg h-fit placeholder:break-words break-words"
+            className="bg-bgPrimaryDark py-4 px-6 placeholder:text-ctnSecondaryDark rounded-lg outline-none border-none font-medium text-ctnPrimaryDark placeholder:text-sm md:placeholder:text-lg h-fit placeholder:break-words break-words"
           />
         </label>
         <label className="flex flex-col">
@@ -112,7 +132,7 @@ function Contact() {
             onChange={handleChange}
             required
             placeholder="What is your email address?"
-            className="bg-bgPrimaryDark py-4 px-6 placeholder:text-ctnSecondaryDark rounded-lg outline-none border-none font-medium text-ctnPrimaryDark  placeholder:text-sm md:placeholder:text-lg h-fit placeholder:break-words break-words"
+            className="bg-bgPrimaryDark py-4 px-6 placeholder:text-ctnSecondaryDark rounded-lg outline-none border-none font-medium text-ctnPrimaryDark placeholder:text-sm md:placeholder:text-lg h-fit placeholder:break-words break-words"
           />
         </label>
         <label className="flex flex-col">
@@ -126,7 +146,7 @@ function Contact() {
             onChange={handleChange}
             required
             placeholder="What do you want to say?"
-            className="bg-bgPrimaryDark py-4 px-6 placeholder:text-ctnSecondaryDark rounded-lg outline-none border-none font-medium text-ctnPrimaryDark  placeholder:text-sm md:placeholder:text-lg h-fit placeholder:break-words break-words"
+            className="bg-bgPrimaryDark py-4 px-6 placeholder:text-ctnSecondaryDark rounded-lg outline-none border-none font-medium text-ctnPrimaryDark placeholder:text-sm md:placeholder:text-lg h-fit placeholder:break-words break-words"
           />
         </label>
 

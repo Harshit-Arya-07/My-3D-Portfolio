@@ -85,7 +85,12 @@ function Experience() {
 
   return (
     <motion.section className="w-full p-8 mt-20">
-      <motion.div variants={textVariant()}>
+      <motion.div
+        variants={textVariant()}
+        initial="hidden"
+        whileInView="show"
+        viewport={{ once: true, amount: 0.25 }}
+      >
         <p className={`sectionSubText text-center`}>Where I have done my education so far</p>
         <h2 className={`sectionHeadText text-center`}>Education</h2>
       </motion.div>

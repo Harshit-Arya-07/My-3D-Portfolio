@@ -6,7 +6,7 @@ import {
   useFBX,
   useGLTF,
 } from "@react-three/drei";
-import { Suspense, useEffect, useRef, useState } from "react";
+import { memo, Suspense, useEffect, useRef } from "react";
 import * as THREE from "three";
 import { Canvas } from "@react-three/fiber";
 
@@ -15,7 +15,6 @@ import PlayerModel from "./models/PlayerModel";
 
 function Player({ isMobile }) {
   const group = useRef();
-  const [animationsLoaded, setAnimationsLoaded] = useState(false);
 
   const { nodes, materials, scene } = useGLTF("models/player/player.gltf");
   const { animations: waveAnimation } = useFBX(
@@ -28,19 +27,14 @@ function Player({ isMobile }) {
   const { actions } = useAnimations(waveAnimation, group);
 
   useEffect(() => {
-    if (waveAnimation && actions["wave-animation"]) {
-      setAnimationsLoaded(true);
-    }
-    if (animationsLoaded) {
-      actions["wave-animation"].reset().play();
-    }
-  }, [animationsLoaded, waveAnimation, actions]);
+    const action = actions["wave-animation"];
 
-  setTimeout(() => {
-    if (waveAnimation && actions["wave-animation"]) {
-      setAnimationsLoaded(true);
-    }
-  }, 2000);
+    if (!action) return undefined;
+
+    action.reset().play();
+
+    return () => action.stop();
+  }, [actions]);
 
   return (
     <>
@@ -87,9 +81,12 @@ function PlayerCanvas({ isMobile }) {
   return (
     <Canvas
       dpr={[1, 2]}
+      resize={{ scroll: false, debounce: { scroll: 0, resize: 120 } }}
       gl={{
         outputColorSpace: THREE.SRGBColorSpace,
         alpha: true,
+        antialias: false,
+        powerPreference: "high-performance",
       }}
     >
       <Player isMobile={isMobile} />
@@ -97,4 +94,4 @@ function PlayerCanvas({ isMobile }) {
   );
 }
 
-export default PlayerCanvas;
+export default memo(PlayerCanvas);

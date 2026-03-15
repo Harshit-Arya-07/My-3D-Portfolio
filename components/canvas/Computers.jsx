@@ -6,7 +6,7 @@ import {
 } from "@react-three/drei";
 import * as THREE from "three";
 import { Canvas } from "@react-three/fiber";
-import { Suspense } from "react";
+import { memo, Suspense } from "react";
 
 import CanvasLoader from "../Loader";
 import ComputerModel from "./models/ComputerModel";
@@ -47,11 +47,15 @@ function Computers({ isMobile }) {
 function ComputersCanvas({ isMobile }) {
   return (
     <Canvas
+      frameloop={isMobile ? "always" : "demand"}
       dpr={[1, 2]}
       camera={{ position: [20, 3, 5], fov: 25 }}
+      resize={{ scroll: false, debounce: { scroll: 0, resize: 120 } }}
       gl={{
         outputColorSpace: THREE.SRGBColorSpace,
         alpha: true,
+        antialias: false,
+        powerPreference: "high-performance",
       }}
       className="cursor-pointer"
     >
@@ -63,4 +67,4 @@ function ComputersCanvas({ isMobile }) {
   );
 }
 
-export default ComputersCanvas;
+export default memo(ComputersCanvas);

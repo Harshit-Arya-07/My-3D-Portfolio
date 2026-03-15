@@ -37,6 +37,11 @@
   .wave {
     @apply absolute w-full bg-top bg-no-repeat bg-cover;
   }
+
+  .animate-gradient-flow {
+    background-size: 200% auto;
+    animation: gradient-flow 3s ease infinite;
+  }
 }
 
 @layer base {
@@ -188,6 +193,12 @@ svg {
   100% {
     opacity: 1;
   }
+}
+
+@keyframes gradient-flow {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
 }
 
 @keyframes lights {

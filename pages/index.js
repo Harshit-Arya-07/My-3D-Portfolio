@@ -4,9 +4,9 @@ import {
   About,
   Contact,
   Experience,
+  Footer,
   Hero,
   Navbar,
-  StarsCanvas,
   Tech,
   Works,
 } from "@/components";
@@ -57,8 +57,9 @@ function App({ loading }) {
       <section className="relative z-0 flex md:flex-row justify-between flex-col-reverse w-full h-full overflow-x-hidden sm:p-8 p-2 pb-8">
         <Contact />
         <EarthContainer isMobile={isMobile} />
-        <StarsCanvas />
       </section>
+      {/* Harshit Arya reserved footer */}
+      <Footer />
       <button
         onClick={() => {
           window.scrollTo({

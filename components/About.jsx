@@ -27,15 +27,18 @@ function About() {
         viewport={{ once: true, amount: 0.25 }}
         className="mt-4 dark:text-ctnSecondaryDark text-gray-300 text-[17px] w-full leading-[30px] flex flex-col justify-between gap-6"
       >
-        <div>
-          Hello! I&apos;m Harshit Arya, a passionate software developer and problem solver. Currently, I&apos;m pursuing a B.E. degree in Computer Science and Engineering, where I focus on building scalable and user-centric web applications. I&apos;m a web developer with hands-on experience in TypeScript, JavaScript, and Tailwind CSS, and I specialize in frameworks such as React, Node.js, and Next.js. I&apos;ve worked on real-world projects including management systems, algorithm visualization platforms, and responsive e-commerce applications. My strong foundation in data structures and algorithms enables me to design efficient solutions and build clean, high-performance frontend experiences.
+        <div className="space-y-4">
+          <p>
+            I&apos;m Harshit Arya, a Computer Science Engineering student and developer with hands-on experience building full-stack web applications using JavaScript, TypeScript, React, Next.js, Node.js, and Tailwind CSS.
+          </p>
 
-          <br className="sm:block hidden" />
-          Let&apos;s collaborate to bring your ideas to life!
+          <p>
+            I have a strong interest in backend systems, API design, and scalable software architecture, and I approach development with a problem-solving mindset rooted in clean implementation and continuous learning. I actively build real-world projects while improving my DSA and core engineering fundamentals. I&apos;m currently open to freelance opportunities and looking to contribute to impactful products where strong frontend execution and solid backend thinking both matter. Let&apos;s collaborate to bring your ideas to life!
+          </p>
         </div>
         <div className="w-fit break-words">
           <Link
-            href="mailto:shivamsharma77607@gmail.com"
+            href="mailto:harshitsingh0257@gmail.com"
             target="_blank"
             rel="noreferrer"
             className="hover:text-primary w-full transition-all duration-100 ease-in flex md:items-center gap-2 md:flex-row flex-wrap word-break hover:-translate-y-2"

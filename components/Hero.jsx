@@ -26,7 +26,7 @@ function Hero({ loading, isMobile }) {
         >
           <h1 className={`heroHeadText`}>
             Hi, I&apos;m{" "}
-            <span className="dark:text-five text-primary">Harshit</span>
+            <span className="animate-gradient-flow bg-gradient-to-r from-purple-400 via-violet-300 to-blue-400 bg-clip-text text-transparent">Harshit</span>
           </h1>
           <p className={`heroSubText mt-2 tracking-wide`}>
             <TypeAnimation

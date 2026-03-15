@@ -71,6 +71,61 @@ npm run dev
 
 Open your web browser and visit http://localhost:3000 to see the website in action during development.
 
+## Google Analytics 4 Setup
+
+This project supports GA4 visitor and page view tracking using the official gtag.js integration.
+
+1. Create a `.env.local` file in the project root.
+2. Add your Measurement ID:
+
+```bash
+NEXT_PUBLIC_GA_MEASUREMENT_ID=G-XXXXXXXXXX
+```
+
+3. Restart the app after updating the environment variable.
+
+How it works:
+
+- The GA4 script is loaded in [pages/_app.js](pages/_app.js).
+- SPA page views are tracked on the first load and on every route change.
+- Total visitors and traffic analytics are then available directly in GA4 reports.
+
+Key files:
+
+- [pages/_app.js](pages/_app.js): loads the official gtag.js script and sends page views.
+- [lib/gtag.js](lib/gtag.js): contains the GA4 Measurement ID hook-up and `pageview` helper.
+
+## Visitor Counter Setup
+
+This project can display the total visitor count on the portfolio UI using Google Analytics Data API.
+
+Add these variables to `.env.local`:
+
+```bash
+NEXT_PUBLIC_GA_MEASUREMENT_ID=G-XXXXXXXXXX
+GA_PROPERTY_ID=123456789
+GA_CLIENT_EMAIL=your-service-account@your-project.iam.gserviceaccount.com
+GA_PRIVATE_KEY="-----BEGIN PRIVATE KEY-----\nYOUR_KEY_HERE\n-----END PRIVATE KEY-----\n"
+GA_REPORT_START_DATE=2024-01-01
+```
+
+What each one does:
+
+- `NEXT_PUBLIC_GA_MEASUREMENT_ID`: used by `gtag.js` for pageview tracking.
+- `GA_PROPERTY_ID`: your GA4 numeric property ID.
+- `GA_CLIENT_EMAIL`: service account email from Google Cloud.
+- `GA_PRIVATE_KEY`: service account private key, kept server-side.
+- `GA_REPORT_START_DATE`: the date from which total visitors should be counted.
+
+Where the counter is shown:
+
+- [components/Hero.jsx](components/Hero.jsx): the visitor count card is rendered below the hero text.
+
+Files used for the counter:
+
+- [components/VisitorCounter.jsx](components/VisitorCounter.jsx): glassmorphism UI card and lightweight client fetch.
+- [pages/api/visitor-count.js](pages/api/visitor-count.js): server route that fetches `totalUsers` from Google Analytics.
+
 ## Project Structure
 
 The project structure is organized as follows:

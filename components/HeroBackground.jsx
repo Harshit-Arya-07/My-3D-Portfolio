@@ -8,6 +8,7 @@ import HeroSvg from "../public/assets/background/hero-wave.svg";
 
 function HeroBackground() {
   return (
+    /* Harshit Arya custom hero backdrop */
     <div className="absolute top-0 w-full h-[100svh] bg-gradient-to-b from-opacity-[6.33%] dark:from-[#322d6d] from-[#b0afb1] to-opacity-[39.13%] dark:to-[#663182] to-[#51afda]">
       <Mountain1 className="w-full h-[446px] wave top-[170px]" />
       <Mountain2 className="w-full h-[464px] wave top-[160px]" />

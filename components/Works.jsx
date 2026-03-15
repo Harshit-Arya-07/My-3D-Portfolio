@@ -1,4 +1,3 @@
-import React from "react";
 import Tilt from "react-parallax-tilt";
 import { motion } from "framer-motion";
 import Image from "next/image";
@@ -30,7 +29,7 @@ function ProjectCard({
       <Tilt
         tiltMaxAngleX="10"
         tiltMaxAngleY="10"
-        className="dark:bg-bgSecondaryDark bg-bgSecondaryLight p-5 rounded-2xl sm:w-[370px] w-full h-fit min-h-[590px] shadow-sm shadow-primary"
+        className="dark:bg-bgSecondaryDark bg-bgSecondaryLight p-5 rounded-2xl w-full h-fit min-h-[590px] shadow-sm shadow-primary"
       >
         <div className="relative w-full h-[230px]">
           <div className="w-full h-full object-cover rounded-2xl relative">
@@ -87,7 +86,7 @@ function ProjectCard({
 
 function Works() {
   return (
-    <section className="xl:my-36 md:mx-36 p-8 " id="projects">
+    <section className="xl:my-36 mx-auto max-w-7xl p-8" id="projects">
       <motion.div
         variants={textVariant()}
         initial="hidden"
@@ -113,7 +112,7 @@ function Works() {
         </motion.p>
       </div>
 
-      <div className="md:mt-20 mt-10 flex justify-center flex-wrap gap-7">
+      <div className="md:mt-14 mt-8 grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-7">
         {projects.map((project, index) => (
           <ProjectCard key={`project-${index}`} index={index} {...project} />
         ))}
